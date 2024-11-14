@@ -11,11 +11,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Flutter Barcode Scanner',
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-
+        body:  Center(
+          child: ElevatedButton(
+            onPressed: () {
+              print('Button Pressed');
+            },
+            child: const Text('Scan'),
+          ),
+        ),
       )
     );
   }
