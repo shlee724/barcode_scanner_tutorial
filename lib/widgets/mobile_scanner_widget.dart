@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
 class MobileScannerWidget extends StatelessWidget {
-  final MobileScannerController cameraController;
-  List<String?> scannedBarcodes;
+  final MobileScannerController cameraController = MobileScannerController();
+  List<String?> scannedBarcodes = [];
 
-  MobileScannerWidget({
-    super.key,
-    required this.cameraController,
-    required this.scannedBarcodes,
-  });
+  void dispose() {
+    cameraController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

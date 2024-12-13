@@ -10,25 +10,13 @@ class BarcodeScannerScreen extends StatefulWidget {
 }
 
 class _BarcodeScannerScreenState extends State<BarcodeScannerScreen> {
-  final MobileScannerController cameraController = MobileScannerController();
-  List<String?> scannedBarcodes = [];
-
-  @override
-  void dispose() {
-    cameraController.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Scan Barcode'),
       ),
-      body: MobileScannerWidget(
-        cameraController: cameraController,
-        scannedBarcodes: scannedBarcodes,
-      ),
+      body: MobileScannerWidget(),
     );
   }
 }
