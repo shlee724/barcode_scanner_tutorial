@@ -5,10 +5,6 @@ class MobileScannerWidget extends StatelessWidget {
   final MobileScannerController cameraController = MobileScannerController();
   List<String?> scannedBarcodes = [];
 
-  void dispose() {
-    cameraController.dispose();
-  }
-
   //8자리 숫자 and 인식한 모든 리스트의 바코드가 동일 and 바코드 타입이 code39인지 검사
   bool isScannedBarcodeValid(BarcodeFormat format) {
     if (scannedBarcodes[0] != null) {
@@ -31,10 +27,10 @@ class MobileScannerWidget extends StatelessWidget {
     final format = barcode.format;
 
     if (scannedBarcodes.length < 3) {
-      //바코드가 10번 찍히지 않았으면 찍힌 리스트에 바코드 추가
+      //바코드가 3번 찍히지 않았으면 찍힌 리스트에 바코드 추가
       scannedBarcodes.add(code);
     } else {
-      // 찍힌 바코드가 10개 이상이면 바코드를 제대로 인식했는지 검사하는 알고리즘
+      // 찍힌 바코드가 3개 이상이면 바코드를 제대로 인식했는지 검사하는 알고리즘
 
       if (isScannedBarcodeValid(format)) {
         final codeResult = scannedBarcodes[0];
